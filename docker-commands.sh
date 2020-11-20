@@ -18,6 +18,17 @@ install_docker(){
 	fi
 }
 
+pull_docker_containers() {
+	TEXT="Insert the name of the container that you can pull"
+	DEFAULT=""
+	CONTAINER_NAME=$(whiptail --title "Pulling container from Docker Hub" --inputbox "$TEXT" $VMOD $HMOD 3>&1 1>&2 2>&3)
+	
+	EXITSTATUS=$?
+	if [ $EXITSTATUS = 0 ]; then
+		docker run $CONTAINER_NAME
+	fi
+}
+
 whiptail --title "$TITLE" --yesno "This script drives you into configuration and initialization of Docker on your machine. Do you proceed?" $VMOD $HMOD
 
 DIM1=30
@@ -41,7 +52,11 @@ if [[ "$?" -eq 0 ]]; then
 				;;
 				"2)")
 				;;
-				"3)");;
+				"3)")
+					pull_docker_containers
+					echo 'Sleeping 5 seconds beofre reloading\n' &&
+					sleep 5
+				;;
 				*)
 				 	whiptail --title "Docker Menu" --msgbox "Goodbye $USER" $VMOD $HMOD
 					STATUS=1
