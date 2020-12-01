@@ -29,23 +29,13 @@ PATH=$HOME/docker-nginx-html
 docker run --name $CONTAINER_NAME -p 80:80 -d -v $PATH:/usr/share/nginx/html nginx
 ```
 
-<details>
-  <summary>Springboot Mongodb Demo Application</summary>
-  
-  ## Run application
-  Run this command to startup your Springboot application with mongodb integration 
-  ```bash
-  $ mvn spring-boot:run
-  ```
+## Springboot Mongodb Demo Application
+```bash
 
-  ## Run docker container
-  After this, run the command that view below to start mongodb docker container:
-  ```bash
-  $ docker run -p 27017:27017 -d mongo
-  ```
+# Run this command to starup your Springboot application with mongodb integration
+$ mvn spring-boot:run
 
-  And show the relative log with the command:
-  ```bash
-  $ docker logs -f <container-id>
-  ```
-</details>
+# Run these commands to start mongodb docker container and view container's log
+$ docker run -p 27017:27017 -d mongo
+$ docker logs -f <container-id>
+```
