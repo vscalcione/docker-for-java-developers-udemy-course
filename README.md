@@ -38,4 +38,7 @@ $ mvn spring-boot:run
 # Run these commands to start mongodb docker container and view container's log
 $ docker run -p 27017:27017 -d mongo
 $ docker logs -f <container-id>
+
+# Add storage support
+$ docker run -p 27017:27017 -v <path-of-folder>/docker-mongo-data:/data/db -d mongo
 ```
