@@ -42,3 +42,13 @@ $ docker logs -f <container-id>
 # Add storage support
 $ docker run -p 27017:27017 -v <path-of-folder>/docker-mongo-data:/data/db -d mongo
 ```
+
+## RabbitMQ & MySQL
+```bash
+
+# Run this command to start rabbitmq's docker container
+$ docker run -d --hostname vscalcione-rabbitmq --name rabbitmq-custom -p 8080:15672 -p 5671:5671 -p 5672:5672 rabbitmq:3-management
+
+# Run this command to start mysql's docker container
+$ docker run --name mysql-custom -e MYSQL_ALLOW_EMPTY_PASSWORD=yes -v <path-of-your-folder>/mysql-data:/var/lib/mysql -p 3306:3306 -d mysql
+```
