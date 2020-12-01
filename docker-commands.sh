@@ -22,7 +22,7 @@ pull_docker_containers() {
 	TEXT="Insert the name of the container that you can pull"
 	DEFAULT=""
 	CONTAINER_NAME=$(whiptail --title "Pulling container from Docker Hub" --inputbox "$TEXT" $VMOD $HMOD 3>&1 1>&2 2>&3)
-	
+
 	EXITSTATUS=$?
 	if [ $EXITSTATUS = 0 ]; then
 		docker run $CONTAINER_NAME
