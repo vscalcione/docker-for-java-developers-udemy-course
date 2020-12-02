@@ -43,7 +43,8 @@ if [[ "$?" -eq 0 ]]; then
 			CHOICE=$(whiptail --title "Docker Menu" --menu "Choose option" $DIM1 $DIM2 $DIM3 \
 			"1)" "Install Docker on your system from official repository" \
 			"2)" "Stop and remove all docker containers pulled on your machine" \
-			"3)" "Pull some images from official Docker Hub repository" 3>&2 2>&1 1>&3)
+			"3)" "Pull some images from official Docker Hub repository" \
+			"4)" "Run images with options [--]" 3>&2 2>&1 1>&3)
 
 			OPTION=$(echo $CHOICE | tr '[:upper]' '[:lower]' | sed 's/ //g')
 			case "$OPTION" in
@@ -56,6 +57,9 @@ if [[ "$?" -eq 0 ]]; then
 					pull_docker_containers
 					echo 'Sleeping 5 seconds beofre reloading\n' &&
 					sleep 5
+				;;
+				"4)")
+					install_docker
 				;;
 				*)
 				 	whiptail --title "Docker Menu" --msgbox "Goodbye $USER" $VMOD $HMOD
