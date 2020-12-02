@@ -1,0 +1,13 @@
+## Run centos image on docker
+$ docker run centos
+
+## Check correct starting of docker container
+$ docker ps
+$ docker run -d centos tail -f /dev/null
+
+## Run bash on centos image
+$ docker exec -it <container-name> bash
+
+## Install java on Centos image
+$ yum install java
+$ java -version

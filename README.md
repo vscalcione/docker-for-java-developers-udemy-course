@@ -91,3 +91,33 @@ $ docker run -d --hostname vscalcione-rabbitmq --name rabbitmq-custom -p 8080:15
 # Run this command to start mysql's docker container
 $ docker run --name mysql-custom -e MYSQL_ALLOW_EMPTY_PASSWORD=yes -v <path-of-your-folder>/mysql-data:/var/lib/mysql -p 3306:3306 -d mysql
 ```
+
+## Springboot Project on CentOS Docker image
+
+Pull and run CentOS docker image from [docker-hub](https://hub.docker.com/_/centos) with the command: 
+```bash
+$ docker run centos
+```
+
+Verify the correct starting of the docker container with the command:
+```bash
+$ docker ps
+```
+If the output of this command is an empty list, run this another command:
+```bash
+$ docker run -d centos tail -f /dev/null
+$ docker ps
+```
+
+After this, run bash  on CentOS container with the command:
+```bash
+$ docker exec -it centos bash
+```
+
+Now you're on CentOS filesystem. For first thing, install java with the command:
+```bash
+$ yum install java
+
+# verify the correct java installation
+$ java -version
+```
